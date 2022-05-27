@@ -10,8 +10,8 @@ sudo useradd -mU username -s /bin/bash
 sudo echo username:password | chpasswd
 sudo echo "username    ALL=(ALL:ALL) ALL" >> /etc/sudoers
 sudo chown -R username /home/username
-su - username
-sudo usermod -aG docker $USER && newgrp docker
+sudo usermod -aG docker username && newgrp docker
 sudo rm -rf /tmp/juju-mk*
 sudo rm -rf /tmp/minikube.*
+su - username
 minikube start --driver=docker
