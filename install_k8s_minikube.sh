@@ -12,9 +12,7 @@ sudo echo "username    ALL=(ALL:ALL) ALL" >> /etc/sudoers
 sudo chown -R username /home/username
 sudo usermod -aG docker username 
 sudo newgrp docker
-echo 2
 sudo rm -rf /tmp/juju-mk*
 sudo rm -rf /tmp/minikube.*
-echo 3
 su - username
-minikube start --driver=docker
+
