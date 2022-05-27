@@ -9,7 +9,7 @@ sudo apt update
 sudo useradd -mU username -s /bin/bash
 sudo passwd username
 sudo echo "username    ALL=(ALL:ALL) ALL" >> /etc/sudoers
-sudo chown -R /home/username
+sudo chown -R username /home/username
 su - username
 sudo usermod -aG docker $USER && newgrp docker
 sudo rm -rf /tmp/juju-mk*
