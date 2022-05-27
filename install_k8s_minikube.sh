@@ -11,7 +11,6 @@ sudo echo username:password | chpasswd
 sudo echo "username    ALL=(ALL:ALL) ALL" >> /etc/sudoers
 sudo chown -R username /home/username
 sudo usermod -aG docker username 
-sudo newgrp docker
 sudo rm -rf /tmp/juju-mk*
 sudo rm -rf /tmp/minikube.*
 su - username
