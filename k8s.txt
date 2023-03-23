@@ -1,0 +1,12 @@
+#!/bin/bash
+sudo apt-get update && sudo apt-get install -y apt-transport-https curl
+curl https://releases.rancher.com/install-docker/20.10.sh | sh
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+deb https://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
+
+kubeadm init --apiserver-advertise-address=128.110.217.68 --pod-network-cidr=192.168.1.0/16 --ignore-preflight-errors=all
